@@ -1,0 +1,1139 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffc5dc">
+  <title>♡ my.portfolio.zip ♡</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --pink: #ffc5dc;
+      --hotpink: #ff78b5;
+      --lavender: #d9c8ff;
+      --blue: #c8edff;
+      --yellow: #fff0a8;
+      --mint: #d7f8e7;
+      --cream: #fff9f5;
+      --ink: #56364d;
+      --line: #79546f;
+      --white: #fffdfd;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background-color: #fff0f6;
+      background-image:
+        radial-gradient(#ffb4d2 1px, transparent 1px);
+      background-size: 17px 17px;
+      font-family: "Nunito", sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    button, a {
+      font: inherit;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+    }
+
+    ::selection {
+      background: var(--hotpink);
+      color: white;
+    }
+
+    /* FLOATING DECORATIONS */
+
+    .floaty {
+      position: fixed;
+      z-index: -1;
+      pointer-events: none;
+      opacity: .6;
+      font-size: 25px;
+      animation: bob 4s ease-in-out infinite;
+    }
+
+    .floaty.one {
+      top: 20%;
+      left: 2%;
+    }
+
+    .floaty.two {
+      top: 62%;
+      right: 2%;
+      animation-delay: -2s;
+    }
+
+    @keyframes bob {
+      0%, 100% { transform: translateY(0) rotate(-8deg); }
+      50% { transform: translateY(-12px) rotate(8deg); }
+    }
+
+    /* NAV */
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(255, 249, 245, .95);
+      border-bottom: 2px solid var(--line);
+      backdrop-filter: blur(12px);
+    }
+
+    .nav-inner {
+      max-width: 1120px;
+      min-height: 66px;
+      margin: auto;
+      padding: 10px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+    }
+
+    .logo {
+      font-family: "Fredoka", sans-serif;
+      font-weight: 700;
+      font-size: 1.45rem;
+      white-space: nowrap;
+    }
+
+    .logo span {
+      color: #ef579d;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      padding: 7px 13px;
+      border: 1.5px solid transparent;
+      border-radius: 20px;
+      font-size: .85rem;
+      font-weight: 900;
+      transition: .2s;
+    }
+
+    .nav-links a:hover {
+      background: var(--pink);
+      border-color: var(--line);
+      transform: rotate(-2deg);
+    }
+
+    .menu-btn {
+      display: none;
+      border: 2px solid var(--line);
+      background: var(--pink);
+      border-radius: 50%;
+      width: 42px;
+      height: 42px;
+      cursor: pointer;
+    }
+
+    /* MAIN LAYOUT */
+
+    .page {
+      width: min(100% - 28px, 1050px);
+      margin: 30px auto 55px;
+      border: 2px solid var(--line);
+      border-radius: 20px;
+      background: var(--cream);
+      box-shadow: 8px 8px 0 #e8a8c8;
+      overflow: hidden;
+    }
+
+    .windowbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 15px;
+      background: var(--pink);
+      border-bottom: 2px solid var(--line);
+      font-size: .8rem;
+      font-weight: 900;
+    }
+
+    .window-dots {
+      display: flex;
+      gap: 5px;
+    }
+
+    .window-dots span {
+      width: 12px;
+      height: 12px;
+      border: 1.5px solid var(--line);
+      background: white;
+      border-radius: 50%;
+    }
+
+    .window-dots span:nth-child(2) {
+      background: var(--yellow);
+    }
+
+    .window-dots span:nth-child(3) {
+      background: var(--mint);
+    }
+
+    /* HERO */
+
+    .hero {
+      position: relative;
+      padding: 55px 7% 45px;
+      background:
+        linear-gradient(135deg, #ffe0ed 0%, #ffd0e6 48%, #f1e5ff 100%);
+      border-bottom: 2px dashed #c18aac;
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .mini-label {
+      display: inline-block;
+      background: var(--white);
+      border: 1.5px solid var(--line);
+      border-radius: 30px;
+      padding: 5px 13px;
+      font-size: .75rem;
+      font-weight: 900;
+      box-shadow: 3px 3px 0 #e8a8c8;
+      transform: rotate(-2deg);
+    }
+
+    h1, h2, h3 {
+      font-family: "Fredoka", "Nunito", sans-serif;
+      line-height: 1.15;
+    }
+
+    h1 {
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      letter-spacing: -2px;
+      margin: 24px 0 15px;
+    }
+
+    .pink-word {
+      color: #ed579d;
+      text-shadow: 3px 3px 0 white;
+    }
+
+    .hero-desc {
+      max-width: 380px;
+      font-size: 1rem;
+      font-weight: 800;
+    }
+
+    .kaomoji {
+      font-size: 1.1rem;
+      color: #d94f99;
+      font-weight: 900;
+      margin: 18px 0;
+    }
+
+    .pill-button {
+      display: inline-block;
+      padding: 11px 19px;
+      border: 2px solid var(--line);
+      border-radius: 30px;
+      background: var(--yellow);
+      box-shadow: 4px 4px 0 var(--line);
+      font-weight: 900;
+      transition: .2s;
+    }
+
+    .pill-button:hover {
+      transform: translate(3px, 3px) rotate(2deg);
+      box-shadow: 1px 1px 0 var(--line);
+    }
+
+    .hero-art {
+      position: relative;
+      max-width: 370px;
+      margin: auto;
+      width: 100%;
+    }
+
+    .hero-frame {
+      padding: 9px;
+      background: white;
+      border: 2px solid var(--line);
+      border-radius: 46% 46% 20px 20px;
+      box-shadow: 7px 7px 0 #db8fbc;
+      transform: rotate(2deg);
+    }
+
+    .hero-frame img {
+      width: 100%;
+      height: 360px;
+      object-fit: cover;
+      display: block;
+      border-radius: 46% 46% 14px 14px;
+      background: var(--pink);
+    }
+
+    .sticker {
+      position: absolute;
+      display: grid;
+      place-items: center;
+      width: 78px;
+      height: 78px;
+      border: 2px solid var(--line);
+      border-radius: 50%;
+      box-shadow: 3px 3px 0 var(--line);
+      font-size: 2rem;
+      cursor: pointer;
+      transition: .25s;
+      user-select: none;
+    }
+
+    .sticker:hover {
+      transform: rotate(18deg) scale(1.13);
+    }
+
+    .sticker.bow {
+      top: 0;
+      right: -25px;
+      background: var(--yellow);
+      transform: rotate(12deg);
+    }
+
+    .sticker.berry {
+      bottom: 15px;
+      left: -25px;
+      background: var(--blue);
+      transform: rotate(-10deg);
+    }
+
+    .sparkle {
+      position: absolute;
+      font-size: 2rem;
+      animation: bob 3s ease-in-out infinite;
+    }
+
+    .sparkle.s1 {
+      top: 18%;
+      left: -24px;
+    }
+
+    .sparkle.s2 {
+      bottom: 30%;
+      right: -20px;
+      animation-delay: -1s;
+    }
+
+    .hero-bottom {
+      margin-top: 45px;
+      text-align: center;
+      font-size: .8rem;
+      font-weight: 900;
+      letter-spacing: 1px;
+    }
+
+    /* COMMON SECTIONS */
+
+    .section {
+      padding: 55px 7%;
+      border-bottom: 2px dashed #e4b3d0;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .section-heading .mini-label {
+      margin-bottom: 12px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(2.1rem, 5vw, 3.3rem);
+      margin: 5px 0 10px;
+    }
+
+    .section-heading p {
+      font-weight: 700;
+      margin: 0;
+    }
+
+    /* PROFILE */
+
+    .profile-grid {
+      display: grid;
+      grid-template-columns: .85fr 1.15fr;
+      gap: 25px;
+      align-items: stretch;
+    }
+
+    .profile-card {
+      background: var(--lavender);
+      border: 2px solid var(--line);
+      border-radius: 18px;
+      padding: 25px;
+      text-align: center;
+      box-shadow: 5px 5px 0 #b49ce5;
+      transform: rotate(-1deg);
+    }
+
+    .profile-avatar {
+      width: 105px;
+      height: 105px;
+      margin: 0 auto 15px;
+      border-radius: 50%;
+      background: var(--white);
+      border: 2px dashed #a17bc8;
+      display: grid;
+      place-items: center;
+      font-size: 3.5rem;
+    }
+
+    .profile-card h3 {
+      margin: 8px 0;
+      font-size: 1.7rem;
+    }
+
+    .online {
+      display: inline-block;
+      background: var(--mint);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 3px 10px;
+      font-size: .75rem;
+      font-weight: 900;
+    }
+
+    .bio-card {
+      padding: 25px;
+      border: 2px solid #d7a4c5;
+      border-radius: 18px;
+      background: white;
+    }
+
+    .bio-card h3 {
+      font-size: 1.6rem;
+      margin: 0 0 10px;
+    }
+
+    .bio-card p {
+      margin: 0;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 20px;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 5px 12px;
+      border: 1.5px solid var(--line);
+      border-radius: 20px;
+      background: var(--pink);
+      font-size: .8rem;
+      font-weight: 900;
+    }
+
+    .tag:nth-child(2) { background: var(--blue); }
+    .tag:nth-child(3) { background: var(--yellow); }
+    .tag:nth-child(4) { background: var(--mint); }
+
+    /* MY FAVORITES */
+
+    .favorites {
+      background: #fff4f9;
+    }
+
+    .favorites-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+    }
+
+    .favorite {
+      padding: 22px 15px;
+      text-align: center;
+      border: 2px solid var(--line);
+      border-radius: 17px;
+      background: var(--pink);
+      transition: .2s;
+    }
+
+    .favorite:nth-child(2) { background: var(--blue); }
+    .favorite:nth-child(3) { background: var(--yellow); }
+
+    .favorite:hover {
+      transform: translateY(-6px) rotate(-2deg);
+      box-shadow: 4px 4px 0 var(--line);
+    }
+
+    .favorite .emoji {
+      font-size: 2.5rem;
+    }
+
+    .favorite h3 {
+      margin: 8px 0;
+      font-size: 1.35rem;
+    }
+
+    .favorite p {
+      font-size: .87rem;
+      margin: 0;
+    }
+
+    /* GALLERY */
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .gallery-card {
+      background: white;
+      border: 2px solid var(--line);
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 4px 4px 0 #e7b4d0;
+      transition: .2s;
+    }
+
+    .gallery-card:hover {
+      transform: rotate(-1deg) translateY(-4px);
+    }
+
+    .gallery-image {
+      display: block;
+      width: 100%;
+      height: 230px;
+      object-fit: cover;
+      background: var(--pink);
+      border-bottom: 2px solid var(--line);
+    }
+
+    .gallery-caption {
+      padding: 16px;
+    }
+
+    .gallery-caption h3 {
+      margin: 0 0 5px;
+      font-size: 1.35rem;
+    }
+
+    .gallery-caption p {
+      font-size: .88rem;
+      margin: 0;
+    }
+
+    .caption-label {
+      color: #c54c91;
+      font-size: .7rem;
+      font-weight: 900;
+      letter-spacing: 1px;
+    }
+
+    /* MINI DIARY */
+
+    .diary {
+      background: var(--blue);
+    }
+
+    .diary-window {
+      max-width: 620px;
+      margin: auto;
+      border: 2px solid var(--line);
+      border-radius: 14px;
+      background: white;
+      overflow: hidden;
+      box-shadow: 5px 5px 0 #9bcbe6;
+    }
+
+    .diary-title {
+      padding: 10px 15px;
+      background: var(--lavender);
+      border-bottom: 2px solid var(--line);
+      font-weight: 900;
+    }
+
+    .diary-content {
+      padding: 22px;
+    }
+
+    .diary-date {
+      font-size: .8rem;
+      font-weight: 900;
+      color: #c54c91;
+    }
+
+    .diary-content h3 {
+      font-size: 1.6rem;
+      margin: 8px 0;
+    }
+
+    .diary-content p {
+      margin-bottom: 0;
+    }
+
+    .diary-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .tab {
+      border: 1.5px solid var(--line);
+      border-radius: 20px;
+      padding: 6px 13px;
+      background: var(--cream);
+      font-weight: 900;
+      font-size: .8rem;
+      cursor: pointer;
+    }
+
+    .tab[aria-selected="true"] {
+      background: var(--hotpink);
+      color: white;
+    }
+
+    /* CONTACT */
+
+    .contact {
+      text-align: center;
+      background:
+        repeating-linear-gradient(
+          45deg,
+          #ffe1ee,
+          #ffe1ee 12px,
+          #fff0f6 12px,
+          #fff0f6 24px
+        );
+    }
+
+    .contact-box {
+      max-width: 650px;
+      margin: auto;
+      padding: 35px 20px;
+      background: rgba(255, 253, 253, .94);
+      border: 2px solid var(--line);
+      border-radius: 20px;
+      box-shadow: 6px 6px 0 #d78fb5;
+    }
+
+    .contact-box h2 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      margin: 15px 0;
+    }
+
+    .contact-box p {
+      margin-bottom: 25px;
+    }
+
+    .contact-box .pill-button {
+      background: var(--hotpink);
+      color: white;
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: var(--pink);
+      padding: 20px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: .78rem;
+      font-weight: 900;
+    }
+
+    footer p {
+      margin: 0;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 700px) {
+      .nav-inner {
+        padding: 10px 15px;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        padding: 12px 18px 20px;
+        background: var(--cream);
+        border-bottom: 2px solid var(--line);
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links a {
+        display: block;
+      }
+
+      .page {
+        width: calc(100% - 18px);
+        margin-top: 15px;
+        box-shadow: 4px 4px 0 #e8a8c8;
+      }
+
+      .hero {
+        padding: 38px 7% 30px;
+      }
+
+      .hero-grid,
+      .profile-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+      }
+
+      h1 {
+        font-size: clamp(3.2rem, 15vw, 5rem);
+      }
+
+      .hero-frame img {
+        height: 300px;
+      }
+
+      .hero-art {
+        max-width: 300px;
+      }
+
+      .section {
+        padding: 40px 6%;
+      }
+
+      .favorites-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .favorite {
+        display: grid;
+        grid-template-columns: 55px 1fr;
+        align-items: center;
+        text-align: left;
+        gap: 10px;
+      }
+
+      .favorite .emoji {
+        grid-row: span 2;
+      }
+
+      .favorite h3,
+      .favorite p {
+        margin: 0;
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-image {
+        height: 240px;
+      }
+
+      footer {
+        justify-content: center;
+        text-align: center;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <span class="floaty one" aria-hidden="true">୨୧</span>
+  <span class="floaty two" aria-hidden="true">♡</span>
+
+  <!-- NAVIGATION -->
+  <header class="topbar">
+    <nav class="nav-inner" aria-label="메인 메뉴">
+      <a href="#home" class="logo">my.portfolio<span>.zip ♡</span></a>
+
+      <button
+        class="menu-btn"
+        id="menuBtn"
+        aria-label="메뉴 열기"
+        aria-expanded="false"
+        aria-controls="navLinks"
+      >☰</button>
+
+      <div class="nav-links" id="navLinks">
+        <a href="#about">♡ ABOUT</a>
+        <a href="#favorites">♡ LOVES</a>
+        <a href="#gallery">♡ GALLERY</a>
+        <a href="#diary">♡ DIARY</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="page">
+
+    <div class="windowbar">
+      <div class="window-dots">
+        <span></span><span></span><span></span>
+      </div>
+      <span>♡ welcome to my little world ♡</span>
+      <span>v.2000</span>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div class="hero-grid">
+        <div>
+          <span class="mini-label">♡ YOU'VE ENTERED MY WORLD ♡</span>
+
+          <h1>
+            HELLO,<br>
+            <span class="pink-word">WORLD!</span><br>
+            ୨୧
+          </h1>
+
+          <p class="hero-desc">
+            welcome to my tiny internet bedroom ♡<br>
+            </p>
+
+          <div class="kaomoji">
+            ( ˶ˆᗜˆ˵ ) ♡ (｡•̀ᴗ-)✧
+          </div>
+
+          <a href="#about" class="pill-button">
+            COME INSIDE! ↴
+          </a>
+        </div>
+
+        <div class="hero-art">
+          <span class="sparkle s1">✧</span>
+          <span class="sparkle s2">୨୧</span>
+
+          <div class="hero-frame">
+            <img
+              src="https://images.unsplash.com/photo-1558679908-541bcf1249ff?auto=format&fit=crop&w=900&q=85"
+              alt="핑크빛 파스텔 감성의 장식 오브제"
+            >
+          </div>
+
+          <button class="sticker bow" aria-label="리본 스티커">
+            🎀
+          </button>
+
+          <button class="sticker berry" aria-label="딸기 스티커">
+            🍓
+          </button>
+        </div>
+      </div>
+
+      <div class="hero-bottom">
+        ✿ MADE OF LITTLE DREAMS.. ✿
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section" id="about">
+      <div class="section-heading">
+        <span class="mini-label">01 / WHO'S THIS?</span>
+        <h2>♡ ABOUT ME ♡</h2>
+        <p>my tiny profile card! (｡･ω･｡)</p>
+      </div>
+
+      <div class="profile-grid">
+        <article class="profile-card">
+          <div class="profile-avatar">🐰</div>
+          <h3>your nickname</h3>
+          <p>professional daydreamer ♡</p>
+          <span class="online">● ONLINE & DREAMING</span>
+          <p style="margin-top:15px;font-size:.8rem">
+            collecting cute things since forever
+          </p>
+        </article>
+
+        <article class="bio-card">
+          <h3>dear internet diary, ✉</h3>
+          <p>
+           A little collection of my favorite things, inspirations, and everyday finds. From cute objects and pretty visuals to music and memorable moments, this space is a reflection of my personal taste and style.
+          </p>
+          <p style="margin-top:12px">
+           A little playful, a little unexpected, and entirely my own. A space for my interests, inspirations, and everything that makes up my style. ♡
+          </p>
+
+          <div class="tags">
+            <span class="tag">🍓 strawberry lover</span>
+            <span class="tag">🎀 ribbon collector</span>
+            <span class="tag">🍮 pudding fan</span>
+            <span class="tag">🧸 plushie addict</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- FAVORITES -->
+    <section class="section favorites" id="favorites">
+      <div class="section-heading">
+        <span class="mini-label">02 / MY HAPPY PILLS</span>
+        <h2>THINGS I ♡</h2>
+        <p>Collecting little joys! ૮₍ ˶ᵔ ᵕ ᵔ˶ ₎ა</p>
+      </div>
+
+      <div class="favorites-grid">
+        <article class="favorite">
+          <span class="emoji">🍓</span>
+          <h3>strawberry days</h3>
+          <p>Strawberries, cake, and sweet afternoons..</p>
+        </article>
+
+        <article class="favorite">
+          <span class="emoji">🎀</span>
+          <h3>pink everything</h3>
+          <p>Ribbons, lace, pink accessories.</p>
+        </article>
+
+        <article class="favorite">
+          <span class="emoji">🧸</span>
+          <h3>soft & cozy</h3>
+          <p>Plushies and cozy blankets.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="section" id="gallery">
+      <div class="section-heading">
+        <span class="mini-label">03 / MY LITTLE COLLECTION</span>
+        <h2>THE CUTE FILES</h2>
+        <p>♡ saved to my heart ♡</p>
+      </div>
+
+      <div class="gallery-grid">
+        <article class="gallery-card">
+          <img
+            class="gallery-image"
+            src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=900&q=85"
+            alt="부드러운 색감의 꽃 사진"
+            loading="lazy"
+          >
+          <div class="gallery-caption">
+            <div class="caption-label">FILE 001 · FLOWERS</div>
+            <h3>flower overload ✿</h3>
+            <p>작은 꽃과 파스텔 컬러, 그리고 봄날의 기분.</p>
+          </div>
+        </article>
+
+        <article class="gallery-card">
+          <img
+            class="gallery-image"
+            src="https://images.unsplash.com/photo-1490312278390-ab64016e0aa9?auto=format&fit=crop&w=900&q=85"
+            alt="감성적인 소품과 장식"
+            loading="lazy"
+          >
+          <div class="gallery-caption">
+            <div class="caption-label">FILE 002 · LITTLE THINGS</div>
+            <h3>tiny treasures ♡</h3>
+            <p>When little things come together, they create a world of my own.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE DIARY -->
+    <section class="section diary" id="diary">
+      <div class="section-heading">
+        <span class="mini-label">04 / SECRET LITTLE CORNER</span>
+        <h2>MY MINI DIARY</h2>
+        <p>Click a tab to uncover a little secret note! ✉</p>
+      </div>
+
+      <div class="diary-window">
+        <div class="diary-title">
+          ▣ diary.exe — now loading ♡
+        </div>
+
+        <div class="diary-content">
+          <div class="diary-tabs" role="tablist" aria-label="다이어리 메뉴">
+            <button class="tab" role="tab" aria-selected="true"
+              data-note="mood">♡ my mood</button>
+            <button class="tab" role="tab" aria-selected="false"
+              data-note="dream">☆ my dream</button>
+            <button class="tab" role="tab" aria-selected="false"
+              data-note="secret">✉ secret</button>
+          </div>
+
+          <div aria-live="polite" id="diaryText">
+            <div class="diary-date">TODAY'S LITTLE THOUGHT ♡</div>
+            <h3>currently feeling: ✨</h3>
+            <p>
+            Today is for good music, good food, and finding little things that make me happy. It doesn’t have to be perfect to be a lovely day ♡
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section contact" id="contact">
+      <div class="contact-box">
+        <span style="font-size:2.5rem">💌</span>
+        <h2>LET'S BE<br>INTERNET BESTIES!</h2>
+        <p>Thanks for stopping by! ♡
+        </p>
+
+        <!-- 아래 이메일 주소를 본인의 주소로 변경하세요 -->
+        <a class="pill-button" href="hxxxxngg@gmail.com">
+          SEND ME A LETTER ↗
+        </a>
+
+        <p style="margin:20px 0 0;font-size:.78rem">
+          (づ๑•ᴗ•๑)づ♡
+        </p>
+      </div>
+    </section>
+
+    <footer>
+      <a class="logo" href="#home">my.portfolio<span>.zip ♡</span></a>
+      <p>made with sugar, stickers & love ✿</p>
+      <p>© 2026 · stay soft, stay weird.</p>
+    </footer>
+
+  </main>
+
+  <script>
+    // MOBILE MENU
+    const menuBtn = document.getElementById("menuBtn");
+    const navLinks = document.getElementById("navLinks");
+
+    menuBtn.addEventListener("click", () => {
+      const open = navLinks.classList.toggle("open");
+      menuBtn.textContent = open ? "✕" : "☰";
+      menuBtn.setAttribute("aria-expanded", String(open));
+      menuBtn.setAttribute("aria-label", open ? "메뉴 닫기" : "메뉴 열기");
+    });
+
+    navLinks.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        menuBtn.textContent = "☰";
+        menuBtn.setAttribute("aria-expanded", "false");
+        menuBtn.setAttribute("aria-label", "메뉴 열기");
+      });
+    });
+
+    // MINI DIARY TABS
+    const notes = {
+      mood: {
+        date: "TODAY'S LITTLE THOUGHT ♡",
+        title: "currently feeling: ✨",
+        text: "Today is all about listening to my favorite music, enjoying good food, and finding little things that make me happy. It doesn’t have to be perfect to be a cute little day ♡"
+      },
+      dream: {
+        date: "A LITTLE WISH ☆",
+        title: "dreaming in pink...",
+        text: "Someday, I want to create a room filled with cute things — photos and stickers on the walls, little plushies on my desk, and all the things I love in one cozy space🎀"
+      },
+      secret: {
+        date: "TOP SECRET · OPENED! ✉",
+        title: "psst... a tiny secret",
+        text: "I want to be someone who finds happiness in the little things — a pretty sky, a warm drink, or a favorite song. I hope to hold on to these small moments for a long time ♡ ૮ ˶ᵔ ᵕ ᵔ˶ ა"
+      }
+    };
+
+    const diaryText = document.getElementById("diaryText");
+
+    document.querySelectorAll(".tab").forEach(tab => {
+      tab.addEventListener("click", () => {
+        document.querySelectorAll(".tab").forEach(item => {
+          item.setAttribute("aria-selected", "false");
+        });
+
+        tab.setAttribute("aria-selected", "true");
+
+        const note = notes[tab.dataset.note];
+
+        const date = document.createElement("div");
+        date.className = "diary-date";
+        date.textContent = note.date;
+
+        const title = document.createElement("h3");
+        title.textContent = note.title;
+
+        const paragraph = document.createElement("p");
+        paragraph.textContent = note.text;
+
+        diaryText.replaceChildren(date, title, paragraph);
+      });
+    });
+
+    // CLICKABLE STICKERS
+    const stickerMessages = [
+      "♡ sending you love! ♡",
+      "🍓 have a sweet day! 🍓",
+      "🎀 stay cute, stay weird! 🎀"
+    ];
+
+    let stickerIndex = 0;
+
+    document.querySelectorAll(".sticker").forEach(sticker => {
+      sticker.addEventListener("click", () => {
+        stickerIndex = (stickerIndex + 1) % stickerMessages.length;
+        sticker.title = stickerMessages[stickerIndex];
+        sticker.setAttribute("aria-label", stickerMessages[stickerIndex]);
+        sticker.textContent = stickerIndex === 0 ? "🎀"
+          : stickerIndex === 1 ? "🍓" : "♡";
+      });
+    });
+  </script>
+
+</body>
+</html>
